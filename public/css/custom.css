@@ -1,0 +1,470 @@
+/* 
+  ======================================================
+  Custom CSS iNomad Travel Blog - Brian Boehm 2020
+	
+	# Side Wide Settings
+	# Navigation
+	
+  ====================================================== 
+*/
+
+
+/* =====================================================
+	Site Wide Settings 
+===================================================== */
+
+body {
+	font-family: 'Varela Round', sans-serif;
+}
+
+/* colors */
+.bg-dark-trans {
+	background-color: rgba(34, 34, 34, 0.6);
+}
+.bg-dark-custom {
+	background-color: rgba(34, 34, 34, 1);
+}
+.bg-dark-custom-2 {
+	background-color: #000000;
+}
+.text-orange {
+	color: #ba3916!important;
+}
+.text-light-grey {
+	color: #888;
+}
+.btn-orange {
+	border: none;
+	background-color: #ba3916;
+}
+.btn-orange:hover,
+.btn-orange:focus, 
+.btn-orange::after {
+	background-color: #a1391c;
+}
+.btn-trans-justified {
+	border: none;
+	background-color: rgba(0,0,0,0);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* heights and widths */
+.min-height {
+	min-height: 400px;
+}
+
+/* column heights */
+.row-eq-height > [class^=col]:first-of-type {
+  display: flex;
+}
+
+.row-eq-height > [class^=col]:first-of-type .black {
+  flex-grow: 1;
+}
+
+/* =====================================================
+	Navigation 
+===================================================== */
+
+.form-control {
+	box-shadow: none;		
+	font-weight: normal;
+	font-size: 13px;
+}
+.navbar {
+	z-index: 10;
+	min-height: 60px;
+	padding-left: 16px;
+	padding-right: 16px;
+	border-radius: 0;
+	background-color: rgba(34, 34, 34, 1);
+}
+.nav-link img {
+	border-radius: 50%;
+	width: 36px;
+	height: 36px;
+	margin: -8px 0;
+	float: left;
+	margin-right: 10px;
+}
+.navbar .navbar-brand {
+	padding-left: 0;
+	font-size: 20px;
+	padding-right: 50px;
+}
+.navbar .navbar-brand b {
+	color: #ba3916;		
+}
+.navbar .form-inline {
+	display: inline-block;
+}
+.navbar a {
+	color: #888;
+	font-size: 15px;
+}
+.search-box {
+	position: relative;
+}	
+.search-box input {
+	padding-right: 35px;
+	border-color: #dfe3e8;
+	border-radius: 4px !important;
+	box-shadow: none
+}
+.search-box .input-group-text {
+	min-width: 35px;
+	border: none;
+	background: transparent;
+	position: absolute;
+	right: 0;
+	z-index: 9;
+	padding: 7px;
+	height: 100%;
+}
+.search-box i {
+	color: #a0a5b1;
+	font-size: 19px;
+}
+/* .navbar .sign-up-btn {
+	min-width: 110px;
+	max-height: 36px;
+	width: 40px!important;
+} */
+.navbar .dropdown-menu {
+	color: #999;
+	font-weight: normal;
+	box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+.navbar a, .navbar a:active {
+	color: #888;
+	padding: 8px 20px;
+	background: transparent;
+	line-height: normal;
+}
+.navbar .navbar-form {
+	border: none;
+}
+.navbar .action-form {
+	width: 280px;
+	padding: 20px;
+	left: auto;
+	right: 0;
+	font-size: 14px;
+}
+.navbar .action-form a {		
+	color: #ba3916;
+	padding: 0 !important;
+	font-size: 14px;
+}
+.navbar .action-form .hint-text {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+.navbar .btn-primary, .navbar .btn-primary:active {
+	color: #fff;
+	background: #ba3916 !important;
+	border: none;
+}	
+.navbar .btn-primary:hover, .navbar .btn-primary:focus {		
+	color: #fff;
+	background: #a1391c !important;
+}
+.navbar .action-buttons .dropdown-toggle::after {
+	display: none;
+}
+.form-check-label input {
+	position: relative;
+	top: 1px;
+}
+@media (min-width: 1200px){
+	.form-inline .input-group {
+		width: 300px;
+		margin-left: 30px;
+	}
+}
+@media (max-width: 991px) {
+	.navbar {
+		background-color: rgba(20, 20, 20, 1);
+	}
+	.navbar .dropdown-menu {
+		background-color: rgba(20, 20, 20, 0.0);
+	}
+}
+@media (max-width: 768px){
+	.navbar .dropdown-menu.action-form {
+		width: 100%;
+		padding: 10px 15px;
+		background: transparent;
+		border: none;
+	}
+	.navbar .form-inline {
+		display: block;
+	}
+	.navbar .input-group {
+		width: 100%;
+	}
+}
+
+
+/* =====================================================
+	Hero Section 
+===================================================== */
+
+.sec-0 {
+	z-index: 0;
+	position: absolute;
+	top: 0;
+	height: 100vh;
+	width: 100%;
+}
+.hero-image {
+	z-index: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+}
+
+/* =====================================================
+	Main Section 
+===================================================== */
+
+.sec-main {
+	padding: 15px;
+	position: relative;
+	top: 100vh;
+}
+.sec-main.without-hero {
+	padding-top: 56px!important;
+	position: initial;
+}
+
+/* Latest Articles */
+.article-list {
+  color:#313437;
+  background-color:#fff;
+}
+.article-list p {
+  color:#7d8285;
+}
+.article-list h2 {
+  font-weight:bold;
+  margin-bottom:40px;
+  padding-top:40px;
+  color:inherit;
+}
+.article-list .intro {
+  font-size:16px;
+  max-width:500px;
+  margin:0 auto;
+}
+.article-list .intro p {
+  margin-bottom:0;
+}
+.article-list .articles {
+  padding-bottom:40px;
+}
+.article-list .item {
+  padding-top:50px;
+  min-height:425px;
+}
+.article-list .item .name {
+  font-weight:bold;
+  margin-top:20px;
+  color:inherit;
+}
+.article-list .item .description {
+	font-size:14px;
+  margin-top:15px;
+  margin-bottom:15px;
+}
+.article-list .item .action:hover {
+  opacity:1;
+}
+.articles-2 {
+	margin-top: 90px;
+}
+.pagination {
+	margin-top: 50px;
+}
+
+/* =====================================================
+	Show Posts
+===================================================== */
+
+.card-comments img {
+	width:4rem;
+}
+
+/* =====================================================
+	Show Posts
+===================================================== */
+
+.all-posts-cont {
+	min-height: 100vh;
+}
+
+#no-posts-cont {
+	min-height: 70vh !important;
+}
+
+.btn-div {
+	width: 50%;
+	border-radius: 0 4px 0 4px;
+	transition: ease-out;
+	transition-duration: 0.05s;
+	position: absolute;
+	z-index: 1;
+	height: 0px;
+	background-color: rgba(10, 10, 10, 0.9);
+	right: 0;
+}
+
+.btn-delete {
+	width: 50%;
+	min-height: 100%;
+	border: none;
+	background-color: rgba(0,0,0,.0);
+	display: none;
+}
+
+.btn-edit {
+	width: 50%;
+	min-height: 100%;
+	border: none;
+	background-color: rgba(0,0,0,.0);
+	display: none;
+}
+
+.open-btn-cont {
+	height: 38px;
+}
+
+.show-btn {
+	display: block!important;
+}
+
+/* =====================================================
+	Footer
+===================================================== */
+
+footer {
+	padding: 1.5rem;
+	position: relative;
+	top: 100vh;
+	z-index: 5;
+}
+footer.without-hero {
+	position: initial;
+}
+.context-dark, .bg-gray-dark, .bg-primary {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
+	color: #ffffff;
+}
+.nav-list li {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+ul, ol {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* =====================================================
+	Confirm Modal
+===================================================== */
+
+.modal-confirm {		
+  color: #636363;
+  width: 400px;
+  margin: 30px auto;
+}
+.modal-confirm .modal-content {
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+}
+.modal-confirm .modal-header {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  border-bottom: none;   
+}
+.modal-confirm h4 {
+  text-align: center;
+  font-size: 26px;
+  margin: 30px 0 -10px;
+}
+.modal-confirm .close {
+  position: absolute;
+  top: -5px;
+  right: -2px;
+}
+.modal-confirm .modal-body {
+  color: #999;
+}
+.modal-confirm .modal-footer {
+	justify-content: center;
+	flex-wrap: wrap;
+  border: none;	
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 10px 15px 25px;
+}
+.modal-confirm .modal-footer a {
+  color: #999;
+}		
+.modal-confirm .icon-box {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 50%;
+  z-index: 9;
+  text-align: center;
+  border: 3px solid #f15e5e;
+}
+.modal-confirm .icon-box i {
+  color: #f15e5e;
+  font-size: 46px;
+  display: inline-block;
+  margin-top: 13px;
+}
+.modal-confirm .btn {
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.4s;
+  line-height: normal;
+  min-width: 120px;
+  border: none;
+  min-height: 40px;
+  border-radius: 3px;
+  margin: 0 5px 5px;
+  outline: none !important;
+}
+.modal-confirm .btn-info {
+  background: #c1c1c1;
+}
+
+.modal-confirm .btn-info:hover, .modal-confirm .btn-info:focus {
+	background: #a8a8a8;
+}
+
+@media(max-width: 400px) {
+	.modal-confirm {		
+		color: #636363;
+		width: 250px;
+		margin: 10px auto;
+	}
+}

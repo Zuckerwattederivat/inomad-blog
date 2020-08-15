@@ -1,0 +1,86 @@
+<?php
+  /*
+  * App Pages Controller Class
+  * Loads pages
+  * Passes data from and to models
+  */
+  class Pages extends Controller {
+
+    public function __construct() {
+
+      // construct models
+      $this->postModel = $this->model('Post');
+      $this->catModel = $this->model('Category');
+    }
+
+    // Load index
+    public function index($page=1) {
+
+      // get all posts
+      $posts = $this->postModel->getPosts();
+      // get 3 random posts
+      $postsThreeRand = $this->postModel->getThreeRandPosts();
+      // get all categories
+      $categories = $this->catModel->getCats();
+      // get paginated posts
+      $posts_paginated = $this->postModel->getPostsLimit($page-1, 10);
+
+      // data array
+      $data = [
+        'lead' => 'Discover Our Stories',
+        'description' => 'This blog brings together travel enthusiasts and digital nomads and lets them share their stories. Register now and start telling us of your adventures.',
+        'h2' => 'Newest Articles',
+        'posts_paginated' => $posts_paginated,
+        'post_count' => count($posts),
+        'posts_three_rand' => $postsThreeRand,
+        'categories' => $categories,
+        'current_page' => $page
+      ];
+
+      // if page not found load page 1
+      if ($data['current_page'] > ceil($data['post_count']/10)) {
+        header('Location: ' . URLROOT);
+      }
+
+      // declare view and pass data array
+      $this->view('pages/index', $data);
+
+    }
+
+    // Load index
+    public function page($page) {
+
+      // get all posts
+      $posts = $this->postModel->getPosts();
+      // get 3 random posts
+      $postsThreeRand = $this->postModel->getThreeRandPosts();
+      // get all categories
+      $categories = $this->catModel->getCats();
+      // get paginated posts
+      $posts_paginated = $this->postModel->getPostsLimit(($page-1)*10, 10);
+
+      // data array
+      $data = [
+        'lead' => 'Discover Our Stories',
+        'description' => 'This blog brings together travel enthusiasts and digital nomads and lets them share their stories. Register now and start telling us of your adventures.',
+        'h2' => 'Page '.$page,
+        'posts_paginated' => $posts_paginated,
+        'post_count' => count($posts),
+        'posts_three_rand' => $postsThreeRand,
+        'categories' => $categories,
+        'current_page' => $page
+      ];
+
+      // if page not found load page 1
+      if ($data['current_page'] > ceil($data['post_count']/10)) {
+        header('Location: ' . URLROOT);
+      }
+
+      // declare view and pass data array
+      $this->view('pages/index', $data);
+
+    }
+
+  }
+
+?>

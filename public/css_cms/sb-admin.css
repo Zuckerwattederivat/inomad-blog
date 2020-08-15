@@ -1,0 +1,440 @@
+/* 
+  ======================================================
+  Custom CSS Admin Panel iNomad Travel Blog - Brian Boehm 2020
+	
+	# Side Wide Settings
+	# Navigation
+	
+  ====================================================== 
+*/
+
+/* =====================================================
+	Site Wide Settings 
+===================================================== */
+
+body {
+  font-family: 'Varela Round', sans-serif;
+  margin-top: 100px;
+  background-color: #222;
+}
+
+@media(min-width:768px) {
+  body {
+    margin-top: 50px;
+  }
+}
+
+#wrapper {
+  padding-left: 0;
+}
+
+#page-wrapper {
+  width: 100%;
+  padding: 0;
+  padding-top: 2em;
+  background-color: #fff;
+}
+
+.huge {
+  font-size: 50px;
+  line-height: normal;
+}
+
+@media(min-width:768px) {
+  #wrapper {
+    padding-left: 225px;
+  }
+
+  #page-wrapper {
+    padding: 10px;
+  }
+}
+
+/* colors */
+.navbar-brand.active {
+  color: #fff;
+}
+.bg-dark-trans {
+	background-color: rgba(20, 20, 20, 0.7);
+}
+.bg-dark-custom {
+	background-color: rgba(20, 20, 20, 1);
+}
+.text-orange {
+	color: #ba3916;
+}
+.text-danger-custom {
+  color: #a94442 !important;
+}
+.btn-orange {
+	border: none;
+	background-color: #ba3916;
+}
+.btn-orange:hover,
+.btn-orange:focus, 
+.btn-orange::after {
+	background-color: #a1391c;
+}
+.btn-trans-justified {
+	border: none;
+	background-color: rgba(0,0,0,0);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.is-invalid {
+  border: 1px solid #a94442;
+}
+
+/* widths and hights */
+.custom-7 {
+  width: 7em !important;
+}
+
+/* =====================================================
+	Top Navigation 
+===================================================== */
+
+.hr-custom {
+  margin: 5px 0 5px 0;
+}
+
+.top-nav {
+  padding: 0 15px;
+}
+.top-nav>li {
+  display: inline-block;
+  /* float: left; */
+}
+.top-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+    color: #999;
+}
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+  color: #fff;
+  background-color: #000; 
+}
+.top-nav>.open>.dropdown-menu {
+  float: left;
+  position: absolute;
+  margin-top: 0;
+  border: 1px solid rgba(0,0,0,.15);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background-color: #fff;
+  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.top-nav>.open>.dropdown-menu>li>a {
+  white-space: normal;
+}
+ul.message-dropdown {
+  padding: 0;
+  max-height: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+li.message-preview {
+  width: 275px;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+}
+li.message-preview>a {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+li.message-footer {
+  margin: 5px 0;
+}
+ul.alert-dropdown {
+  width: 200px;
+}
+.navbar-brand > b {
+	color: #ba3916;		
+}
+
+/* =====================================================
+	Side Navigation 
+===================================================== */
+
+@media(min-width:768px) {
+  .side-nav {
+    position: fixed;
+    top: 51px;
+    left: 225px;
+    width: 225px;
+    margin-left: -225px;
+    border: none;
+    border-radius: 0;
+    overflow-y: auto;
+    background-color: #222;
+  }
+
+  .side-nav>li>a {
+    width: 225px;
+  }
+
+  .side-nav li a:hover,
+  .side-nav li a:focus {
+    outline: none;
+    background-color: #000 !important;
+  }
+}
+
+.side-nav>li>ul {
+  padding: 0;
+}
+
+.side-nav>li>ul>li>a {
+  display: block;
+  padding: 10px 15px 10px 38px;
+  text-decoration: none;
+  color: #999;
+}
+
+.side-nav>li>ul>li>a:hover {
+  color: #fff;
+}
+
+/* =====================================================
+	Float Chart Containers 
+===================================================== */
+
+.flot-chart {
+  display: block;
+  height: 400px;
+}
+
+.flot-chart-content {
+  width: 100%;
+  height: 100%;
+}
+
+/* =====================================================
+	Custom Colored Panels 
+===================================================== */
+
+.huge {
+  font-size: 40px;
+}
+
+.panel-pink {
+  border-color: #E91F63;
+}
+
+.panel-pink .panel-heading {
+  border-color: #E91F63;
+  color: #fff;
+  background-color: #E91F63;
+}
+
+.panel-pink a {
+  color: #E91F63;
+}
+
+.panel-pink a:hover {
+  color: #C61A54;
+}
+
+.panel-red {
+  border-color: #F34436;
+}
+
+.panel-red .panel-heading {
+  border-color: #F34436;
+  color: #fff;
+  background-color: #F34436;
+}
+
+.panel-red a {
+  color: #F34436;
+}
+
+.panel-red a:hover {
+  color: #C5372C;
+}
+
+.panel-violet {
+  border-color: #9D27B0;
+}
+
+.panel-violet .panel-heading {
+  border-color: #9D27B0;
+  color: #fff;
+  background-color: #9D27B0;
+}
+
+.panel-violet a {
+  color: #9D27B0;
+}
+
+.panel-violet a:hover {
+  color: #651971;
+}
+
+.panel-dark-blue {
+  border-color: #673AB7;
+}
+
+.panel-dark-blue .panel-heading {
+  border-color: #673AB7;
+  color: #fff;
+  background-color: #673AB7;
+}
+
+.panel-dark-blue a {
+  color: #673AB7;
+}
+
+.panel-dark-blue a:hover {
+  color: #3C226A;
+}
+
+/* =====================================================
+	Confirm Modal
+===================================================== */
+
+.modal-confirm {		
+  color: #636363;
+  width: 400px;
+  margin: 30px auto;
+}
+.modal-confirm .modal-content {
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+}
+.modal-confirm .modal-header {
+  border-bottom: none;   
+  position: relative;
+}
+.modal-confirm h4 {
+  text-align: center;
+  font-size: 26px;
+  margin: 30px 0 -10px;
+}
+.modal-confirm .close {
+  position: absolute;
+  top: -5px;
+  right: -2px;
+}
+.modal-confirm .modal-body {
+  color: #999;
+}
+.modal-confirm .modal-footer {
+  border: none;
+  text-align: center;		
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 10px 15px 25px;
+}
+.modal-confirm .modal-footer a {
+  color: #999;
+}		
+.modal-confirm .icon-box {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 50%;
+  z-index: 9;
+  text-align: center;
+  border: 3px solid #f15e5e;
+}
+.modal-confirm .icon-box i {
+  color: #f15e5e;
+  font-size: 46px;
+  display: inline-block;
+  margin-top: 13px;
+}
+.modal-confirm .btn {
+  color: #fff;
+  border-radius: 4px;
+  background: #60c7c1;
+  text-decoration: none;
+  transition: all 0.4s;
+  line-height: normal;
+  min-width: 120px;
+  border: none;
+  min-height: 40px;
+  border-radius: 3px;
+  margin: 0 5px;
+  outline: none !important;
+}
+.modal-confirm .btn-info {
+  background: #c1c1c1;
+}
+  .modal-confirm .btn-info:hover, .modal-confirm .btn-info:focus {
+  background: #a8a8a8;
+}
+  .modal-confirm .btn-danger {
+  background: #f15e5e;
+}
+  .modal-confirm .btn-danger:hover, .modal-confirm .btn-danger:focus {
+  background: #ee3535;
+}
+
+/* =====================================================
+	Dashboard
+===================================================== */
+
+
+
+/* =====================================================
+	Users
+===================================================== */
+
+.custom-table {
+  width: 100%;
+  display: table;
+  border: 1px solid #d9d9d9;
+  border-collapse: separate;
+  border-spacing: 0px;
+  padding: 0;
+}
+
+.th-group {
+  display: table-header-group;
+}
+
+.th {
+  display: table-cell;
+  padding: 10px;
+  text-align: justify;
+  border-bottom: 1px solid #d9d9d9;
+  border-right: 1px solid #d9d9d9;
+}
+
+.th:nth-last-child(1) {
+  border-right: 0px;
+}
+
+.tr-group {
+  display: table-row-group;
+}
+
+.tr {
+  display: table-row;
+}
+
+.tr:hover {
+  background: #f4f4f4;
+}
+
+.td {
+  display: table-cell;
+  border-top: 1px solid #d9d9d9;
+  border-right: 1px solid #d9d9d9;
+  padding: 5px 5px 5px 5px;
+}
+
+.td:nth-last-child(1) {
+  border-right: 0px;
+}
+
