@@ -19,5 +19,7 @@ The site relies on Bootstrap, Jquery, popper.js, amcharts as well as PHP and MyS
 4. After successfully setting up the blog you should be able to run it via your server and login as admin with the following credentials:
   - email: admin@byom.de
   - password: 123456
+
+5. Change password and email of admin to safely deploy later on
  
-5. You now have full control over the site, it's users and their published posts through the custom cms which can be reached by clicking on the top right user button after logging in as admin.
+6. You now have full control over the site, it's users and their published posts through the custom cms which can be reached by clicking on the top right user button after logging in as admin.
