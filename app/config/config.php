@@ -5,6 +5,9 @@
   define('DB_PASS', '');
   define('DB_NAME', 'iNomad');
 
+  // date
+  date_default_timezone_set('CET');
+
   // App Root
   define('APPROOT', dirname(dirname(__FILE__)));
   // URL Root

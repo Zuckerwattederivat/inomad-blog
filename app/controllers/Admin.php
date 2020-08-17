@@ -367,7 +367,7 @@
           if (!empty($data['post_image']['name'])) {
 
             // change post image name
-            $data['post_image']['name'] = $data['post_user_id'] . "_" . $data['post_image']['name'];
+            $data['post_image']['name'] = "user-" . $data['post_user_id'] . "-post-" . date("Y-m-d-H-i-s") . ".jpg";
             // invoke img validator return path or error
             $image = validateImageUpload($data['post_image'], $errors, 8, 'img/posts/');
             
