@@ -13,7 +13,8 @@ The site relies on Bootstrap, Jquery, popper.js, amcharts as well as PHP and MyS
 3. Rewrite config.php.
   - Inside the application's root directory open "app/config/config.php".
   - Change database parameters on line 3-6 to your local server settings.
-  - Change URLROOT constant on line 11 to your local server directory from which the app is started including the application's root folder name. For example: "http/localhost:8888/inomad-blog" if you want to start the app from localhost port 8888 root directory with the application folder name of inomad-blog.
+  - Change defualt timezone on line 9to your preferred timezone.
+  - Change URLROOT constant on line 14 to your local server directory from which the app is started including the application's root folder name. For example: "http/localhost:8888/inomad-blog" if you want to start the app from localhost port 8888 root directory with the application folder name of inomad-blog.
   - Personalize the other constants in config.php so they fit your preffered data. You can define the site name, site title, backend title, version, email etc.
   
 4. After successfully setting up the blog you should be able to run it via your server and login as admin with the following credentials:
