@@ -12,7 +12,7 @@
       <a href="<?php echo URLROOT; ?>" class="nav-item nav-link">Home</a>
       <div class="nav-item dropdown">
         <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Categories</a>
-        <div class="dropdown-menu">			
+        <div class="dropdown-menu categories-dropdown">			
           <?php foreach ($data['categories'] as $category) : ?>
             <a href='<?php echo URLROOT.'/posts/category/'.$category->cat_id; ?>' class='dropdown-item'><?php echo $category->cat_title; ?></a>
           <?php endforeach; ?>
@@ -38,9 +38,9 @@
       <!-- user links -->
       <div class="navbar-nav ml-auto">
         <!-- profile links-->
-        <div class="nav-item dropdown <?php echo (strlen($_SESSION['user_alias']) <= 8) ? 'pr-5' : ''; ?>">
+        <div class="nav-item">
           <a href="#" data-toggle="dropdown" class="nav-item dropdown-toggle btn btn-primary text-light-grey"><i class="fa fa-user"></i> <?php echo $_SESSION['user_alias']; ?></a>
-          <div class="dropdown-menu">
+          <div class="dropdown-menu dropdown-menu-right user-dropdown">
             <a href="<?php echo URLROOT; ?>/posts/add" class="dropdown-item"><i class="fa fa-pencil"></i> Add Post</a>
             <a href="<?php echo URLROOT."/users/posts/".$_SESSION['user_id']; ?>" class="dropdown-item"><i class="fa fa-file"></i> All Your Posts</a>
             <a href="<?php echo URLROOT; ?>/users/profile" class="dropdown-item"><i class="fa fa-user"></i> Profile</a>
