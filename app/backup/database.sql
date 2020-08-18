@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Erstellungszeit: 17. Aug 2020 um 17:42
+-- Erstellungszeit: 18. Aug 2020 um 13:27
 -- Server-Version: 5.7.26
 -- PHP-Version: 7.4.2
 
@@ -99,9 +99,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_role`, `user_real_name`, `user_alias`, `user_email`, `user_password`, `user_created_at`, `user_bio`, `user_image`) VALUES
-(14, 'admin', 'Brian Böhm', 'iNomad Admin', 'admin@byom.de', '$2y$10$nJbZscHz.SFPmk6H0shtFuBjMvcyQEWD0IzyZOhK9bs38rFaCofWi', '2020-07-26 01:06:13', 'I am the developer and admin of iNomad Travel Blog. I love to write code, stories and to travel. This blog brings all of these hobbies together.', 'profile_pic_user_14.jpg'),
-(19, 'user', 'Testrian von Testburg', 'Test Account', 'test@byom.de', '$2y$10$N9oser1KNGGg1q6Q62mWteiTodlMtspM7yNU0oYLkBLHGl5wBZb7.', '2020-07-31 20:53:36', 'My name is Testrian von Testburg. I am a test account. I love to write test stories and to test my  profile settings. I just love to test everything!', 'profile_pic_user_19.jpg'),
-(33, 'admin', 'Brian Boehm', 'Admin', 'admin2@byom.de', '$2y$10$3FUo1NCVp0ayQArTKS4OkOR8XIUnwgYwDAiOcLjBhk2is.8giOX4q', '2020-08-12 22:14:11', 'I am the developer and admin of iNomad Travel Blog. I love to write code, stories and to travel. This blog brings all of these hobbies together.', 'profile_pic_user_33.jpg');
+(14, 'admin', 'John Doe', 'iNomad Admin', 'admin@inomad.de', '$2y$10$nJbZscHz.SFPmk6H0shtFuBjMvcyQEWD0IzyZOhK9bs38rFaCofWi', '2020-07-26 01:06:13', 'I am the developer and admin of iNomad Travel Blog. I love to write code, stories and to travel. This blog brings all of these hobbies together.', 'profile_pic_user_14.jpg'),
+(19, 'user', 'Testrian von Testburg', 'Test Account', 'test@byom.de', '$2y$10$N9oser1KNGGg1q6Q62mWteiTodlMtspM7yNU0oYLkBLHGl5wBZb7.', '2020-07-31 20:53:36', 'My name is Testrian von Testburg. I am a test account. I love to write test stories and to test my  profile settings. I just love to test everything!', 'profile_pic_user_19.jpg');
 
 --
 -- Indizes der exportierten Tabellen
