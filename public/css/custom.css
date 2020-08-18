@@ -247,6 +247,7 @@ body {
 	padding: 15px;
 	position: relative;
 	top: 100vh;
+	min-height: 100vh;
 }
 .sec-main.without-hero {
 	padding-top: 56px!important;
