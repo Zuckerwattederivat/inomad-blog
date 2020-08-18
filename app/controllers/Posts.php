@@ -53,7 +53,7 @@
         ];
 
         // if page not found load page 1
-        if ($data['current_page'] > ceil($data['post_count']/10)) {
+        if ($data['current_page'] > paginationCeil($data['post_count'], 10)) {
           header('Location: ' . URLROOT . '/posts/category/' . $data['cat_id']);
         }
 
@@ -107,7 +107,7 @@
         ];
 
         // if page not found load page 1
-        if ($data['current_page'] > ceil($data['post_count']/10)) {
+        if ($data['current_page'] > paginationCeil($data['post_count'], 10)) {
           header('Location: ' . URLROOT . '/posts/category/' . $data['cat_id']);
         }
 

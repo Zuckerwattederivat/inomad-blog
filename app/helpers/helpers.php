@@ -90,9 +90,17 @@
 
   // save paragraphs into array
   function saveParagraphsToArray($text) {
-
     return $paragraphs = preg_split('/\r\n|\r|\n/', $text);
+  }
 
+  // pagination ceiling
+  function paginationCeil($count, $maxItems) {
+
+    if ($count != 0) {
+      return ceil($count/$maxItems);
+    } else {
+      return 1;
+    }
   }
 
 

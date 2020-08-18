@@ -34,11 +34,17 @@
         'post_count' => count($posts),
         'posts_three_rand' => $postsThreeRand,
         'categories' => $categories,
-        'current_page' => $page
+        'current_page' => $page,
+        'no_posts_err' => ''
       ];
 
+      // if no posts exist save error
+      if (empty($posts)) {
+        $data['no_posts_err'] = "There aren't any posts yet.";
+      }
+
       // if page not found load page 1
-      if ($data['current_page'] > ceil($data['post_count']/10)) {
+      if ($data['current_page'] > paginationCeil($data['post_count'], 10)) {
         header('Location: ' . URLROOT);
       }
 
@@ -63,16 +69,17 @@
       $data = [
         'lead' => 'Discover Our Stories',
         'description' => 'This blog brings together travel enthusiasts and digital nomads and lets them share their stories. Register now and start telling us of your adventures.',
-        'h2' => 'Page '.$page,
+        'h2' => 'Newest Articles Page '.$page,
         'posts_paginated' => $posts_paginated,
         'post_count' => count($posts),
         'posts_three_rand' => $postsThreeRand,
         'categories' => $categories,
-        'current_page' => $page
+        'current_page' => $page,
+        'no_posts_err' => '',
       ];
 
       // if page not found load page 1
-      if ($data['current_page'] > ceil($data['post_count']/10)) {
+      if ($data['current_page'] > paginationCeil($data['post_count'], 10)) {
         header('Location: ' . URLROOT);
       }
 

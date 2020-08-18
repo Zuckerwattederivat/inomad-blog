@@ -11,7 +11,7 @@
 <section class="container sec-main">
 
   <!-- Featured Articles -->
-  <?php require APPROOT . '/views/includes/feat_articles.php'?>
+  <?php require (empty($data['no_posts_err'])) ? APPROOT . '/views/includes/feat_articles.php' : '' ?>
 
   <!-- Articles -->
   <div id="article-list" class="article-list">
@@ -20,7 +20,7 @@
         <h2 class="text-center"><?php echo $data['h2']; ?></h2>
       </div>
       <div class="row articles-2">
-
+        <p class="text-danger col-md-8"><?php echo $data['no_posts_err']; ?></p>
         <!-- Blog Entries Column -->
         <div id="blog-entries-col" class="col-md-8">
           <?php foreach ($data['posts_paginated'] as $post) : ?>
@@ -49,23 +49,25 @@
     </div>
 
     <!-- Pager -->
-    <ul class="pager d-flex">
-      <li class="previous mr-1">
-        <?php if ($data['current_page'] !== 1) : ?>
-          <a class="btn btn-orange text-white btn-block" href="<?php echo ($data['current_page']-1 !== 1) ? URLROOT."/pages/page/".($data['current_page'] - 1) : URLROOT; ?>">&larr; Newer</a>
+    <?php if (empty($data['no_posts_err']) && paginationCeil($data['post_count'], 10) > 1) : ?>
+      <ul class="pager d-flex">
+        <li class="previous mr-1">
+          <?php if ($data['current_page'] !== 1) : ?>
+            <a class="btn btn-orange text-white btn-block" href="<?php echo ($data['current_page']-1 !== 1) ? URLROOT."/pages/page/".($data['current_page'] - 1) : URLROOT; ?>">&larr; Newer</a>
+          <?php endif; ?>
+        </li>
+        <?php for ($i = 1; $i <= paginationCeil($data['post_count'], 10); $i++) : ?>
+        <li class="page mr-1">
+          <a class="btn text-white btn-block <?php echo ($data['current_page'] == $i) ? "btn-secondary" : "btn-orange"; ?>" href="<?php echo ($i === 1) ? URLROOT : URLROOT."/pages/page/".$i; ?>"><?php echo $i; ?></a>
+        </li>
+        <?php endfor; ?>
+        <?php if ($data['current_page'] != paginationCeil($data['post_count'], 10)) : ?>
+        <li class="next">
+          <a class="btn btn-orange text-white btn-block" href="<?php echo URLROOT."/pages/page/".($data['current_page'] + 1); ?>">Older &rarr;</a>
+        </li>
         <?php endif; ?>
-      </li>
-      <?php for ($i = 1; $i <= ceil($data['post_count']/10); $i++) : ?>
-      <li class="page mr-1">
-        <a class="btn text-white btn-block <?php echo ($data['current_page'] == $i) ? "btn-secondary" : "btn-orange"; ?>" href="<?php echo ($i === 1) ? URLROOT : URLROOT."/pages/page/".$i; ?>"><?php echo $i; ?></a>
-      </li>
-      <?php endfor; ?>
-      <?php if ($data['current_page'] != ceil($data['post_count']/10)) : ?>
-      <li class="next">
-        <a class="btn btn-orange text-white btn-block" href="<?php echo URLROOT."/pages/page/".($data['current_page'] + 1); ?>">Older &rarr;</a>
-      </li>
-      <?php endif; ?>
-    </ul>
+      </ul>
+    <?php endif; ?>
   </div>
 
 </section>

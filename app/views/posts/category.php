@@ -43,23 +43,25 @@
   </div>
 
   <!-- Pager -->
-  <ul class="pager d-flex ml-3">
-    <li class="previous mr-1">
-      <?php if ($data['current_page'] !== 1) : ?>
-        <a class="btn btn-orange text-white btn-block" href="<?php echo ($data['current_page']-1 !== 1) ? URLROOT."/posts/category_page/".$data['cat_id']."/".($data['current_page'] - 1) : URLROOT."/posts/category/".$data['cat_id']; ?>">&larr; Newer</a>
+  <?php if (empty($data['no_posts_err']) && paginationCeil($data['post_count'], 10) > 1) : ?>
+    <ul class="pager d-flex ml-3">
+      <li class="previous mr-1">
+        <?php if ($data['current_page'] !== 1) : ?>
+          <a class="btn btn-orange text-white btn-block" href="<?php echo ($data['current_page']-1 !== 1) ? URLROOT."/posts/category_page/".$data['cat_id']."/".($data['current_page'] - 1) : URLROOT."/posts/category/".$data['cat_id']; ?>">&larr; Newer</a>
+        <?php endif; ?>
+      </li>
+      <?php for ($i = 1; $i <= paginationCeil($data['post_count'], 10); $i++) : ?>
+      <li class="page mr-1">
+        <a class="btn text-white btn-block <?php echo ($data['current_page'] == $i) ? "btn-secondary" : "btn-orange"; ?>" href="<?php echo ($i === 1) ? URLROOT."/posts/category/".$data['cat_id'] : URLROOT."/posts/category_page/".$data['cat_id']."/".$i; ?>"><?php echo $i; ?></a>
+      </li>
+      <?php endfor; ?>
+      <?php if ($data['current_page'] != paginationCeil($data['post_count'], 10)) : ?>
+      <li class="next">
+        <a class="btn btn-orange text-white btn-block" href="<?php echo URLROOT."/posts/category_page/".$data['cat_id']."/".($data['current_page'] + 1); ?>">Older &rarr;</a>
+      </li>
       <?php endif; ?>
-    </li>
-    <?php for ($i = 1; $i <= ceil($data['post_count']/10); $i++) : ?>
-    <li class="page mr-1">
-      <a class="btn text-white btn-block <?php echo ($data['current_page'] == $i) ? "btn-secondary" : "btn-orange"; ?>" href="<?php echo ($i === 1) ? URLROOT."/posts/category/".$data['cat_id'] : URLROOT."/posts/category_page/".$data['cat_id']."/".$i; ?>"><?php echo $i; ?></a>
-    </li>
-    <?php endfor; ?>
-    <?php if ($data['current_page'] != ceil($data['post_count']/10)) : ?>
-    <li class="next">
-      <a class="btn btn-orange text-white btn-block" href="<?php echo URLROOT."/posts/category_page/".$data['cat_id']."/".($data['current_page'] + 1); ?>">Older &rarr;</a>
-    </li>
-    <?php endif; ?>
-  </ul>
+    </ul>
+  <?php endif; ?>
 </section>
 
 <!-- Footer

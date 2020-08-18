@@ -43,7 +43,7 @@
   </div>
 
   <!-- Pager -->
-  <?php if (empty($data['no_posts_err'])) : ?>
+  <?php if (empty($data['no_posts_err']) && paginationCeil($data['post_count'], 10) > 1) : ?>
     <ul class="pager d-flex ml-3">
       <li class="previous mr-1">
         <?php if ($data['current_page'] !== 1) : ?>
@@ -53,7 +53,7 @@
           </form>
         <?php endif; ?>
       </li>
-      <?php for ($i = 1; $i <= ceil($data['post_count']/10); $i++) : ?>
+      <?php for ($i = 1; $i <= paginationCeil($data['post_count'], 10); $i++) : ?>
       <li class="page mr-1">
         <form action="<?php echo ($i === 1) ? URLROOT."/posts/search/" : URLROOT."/posts/search/".$i; ?>" method="post">
           <input type="hidden" name="search" type="text" value="<?php echo $data['search']; ?>">
@@ -61,7 +61,7 @@
         </form>
       </li>
       <?php endfor; ?>
-      <?php if ($data['current_page'] != ceil($data['post_count']/10)) : ?>
+      <?php if ($data['current_page'] != paginationCeil($data['post_count'], 10)) : ?>
       <li class="next">
         <form action="<?php echo URLROOT."/posts/search/".($data['current_page'] + 1); ?>" method="post">
           <input type="hidden" name="search" type="text" value="<?php echo $data['search']; ?>">
