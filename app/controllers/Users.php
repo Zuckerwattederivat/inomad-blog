@@ -29,10 +29,10 @@
       // check for POST
       if($_SERVER['REQUEST_METHOD'] === 'POST') {
         
-        // panitize POST data
+        // sanitize POST data
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        // Pprocess form
+        // process form
         $data = [
           'categories' => $categories,
           'lead' => 'Create An Account',

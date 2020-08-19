@@ -18,7 +18,7 @@ The site relies on Bootstrap, Jquery, popper.js, amcharts as well as PHP and MyS
   - Personalize the other constants in config.php so they fit your preffered data. You can define the site name, site title, backend title, version, email etc.
   
 4. After successfully setting up the blog you should be able to run it via your server and login as admin with the following credentials:
-  - email: admin@byom.de
+  - email: admin@inomad.de
   - password: 123456
 
 5. Change password and email of admin to safely deploy later on

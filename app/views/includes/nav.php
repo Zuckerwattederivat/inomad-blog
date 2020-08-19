@@ -40,7 +40,7 @@
         <!-- profile links-->
         <div class="nav-item">
           <a href="#" data-toggle="dropdown" class="nav-item dropdown-toggle btn btn-primary text-light-grey"><i class="fa fa-user"></i> <?php echo $_SESSION['user_alias']; ?></a>
-          <div class="dropdown-menu dropdown-menu-right user-dropdown">
+          <div class="dropdown-menu dropdown-menu-right user-dropdown mr-3">
             <a href="<?php echo URLROOT; ?>/posts/add" class="dropdown-item"><i class="fa fa-pencil"></i> Add Post</a>
             <a href="<?php echo URLROOT."/users/posts/".$_SESSION['user_id']; ?>" class="dropdown-item"><i class="fa fa-file"></i> All Your Posts</a>
             <a href="<?php echo URLROOT; ?>/users/profile" class="dropdown-item"><i class="fa fa-user"></i> Profile</a>
