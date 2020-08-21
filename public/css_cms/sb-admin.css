@@ -219,6 +219,12 @@ ul.alert-dropdown {
 	Custom Colored Panels 
 ===================================================== */
 
+.slide {
+  opacity: 0;
+  position: relative;
+  top: 30%;
+}
+
 .huge {
   font-size: 40px;
 }

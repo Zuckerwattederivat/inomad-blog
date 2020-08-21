@@ -113,7 +113,7 @@
   </div>
 </section>
 
-<!-- Input Control Javascript -->
+<!-- Input Control JS -->
 <script src="<?php echo URLROOT; ?>/js/upload_input.js"></script>
 
 <!-- Footer
