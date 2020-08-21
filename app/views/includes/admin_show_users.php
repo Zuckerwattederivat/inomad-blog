@@ -31,7 +31,7 @@
           <td>
             <div class="row d-flex">
               <div class="col-md-12">
-                <select type="text" name="user_role" class="edit-input input-<?php echo $user->user_id; ?> form-control hidden">
+                <select type="text" name="user_role" class="edit-input input-<?php echo $user->user_id; ?> input-sm form-control hidden">
                   <option value="<?php echo $user->user_role; ?>"><?php echo $user->user_role; ?></option>
                   <option value="<?php echo ($user->user_role === 'admin') ? 'user' : 'admin' ?>"><?php echo ($user->user_role === 'admin') ? 'user' : 'admin' ?></option>
                 </select>
@@ -44,7 +44,7 @@
           <td>
             <div class="row d-flex">
               <div class="col-md-12">
-                <input type="text" name="username" class="edit-input input-<?php echo $user->user_id; ?> form-control hidden"
+                <input type="text" name="username" class="edit-input input-<?php echo $user->user_id; ?> input-sm form-control hidden"
                 value="<?php echo $user->user_alias; ?>">
                 <div class="content-field content-<?php echo $user->user_id; ?> user-col-cont">
                   <?php echo $user->user_alias; ?>
@@ -55,7 +55,7 @@
           <td>
             <div class="row d-flex">
               <div class="col-md-12">
-                <input type="text" name="name" class="edit-input input-<?php echo $user->user_id; ?> form-control hidden" 
+                <input type="text" name="name" class="edit-input input-<?php echo $user->user_id; ?> input-sm form-control hidden" 
                 value="<?php echo $user->user_real_name; ?>">
                 <div class="content-field content-<?php echo $user->user_id; ?> user-col-cont">
                   <?php echo $user->user_real_name; ?>
@@ -66,7 +66,7 @@
           <td>
             <div class="row d-flex">
               <div class="col-md-12">
-                <input type="text" name="email" class="edit-input input-<?php echo $user->user_id; ?> form-control hidden" 
+                <input type="text" name="email" class="edit-input input-<?php echo $user->user_id; ?> input-sm form-control hidden" 
                 value="<?php echo $user->user_email; ?>">
                 <div class="content-field content-<?php echo $user->user_id; ?> user-col-cont">
                   <?php echo $user->user_email; ?>
@@ -78,11 +78,11 @@
             <div class="row d-flex">
               <div class="col-md-12">
                 <label for="password" class="edit-label label-<?php echo $user->user_id; ?> text-dark small hidden">New Password</label>
-                <input type="password" name="password" class="edit-input input-<?php echo $user->user_id; ?> form-control hidden" 
+                <input type="password" name="password" class="edit-input input-<?php echo $user->user_id; ?> input-sm form-control hidden" 
                 value="<?php echo $data['password']; ?>">
                 <br>
                 <label for="password_confirm" class="edit-label label-<?php echo $user->user_id; ?> text-dark small hidden">Confirm Password</label>
-                <input type="password" name="password_confirm" class="edit-input input-<?php echo $user->user_id; ?> form-control hidden" 
+                <input type="password" name="password_confirm" class="edit-input input-<?php echo $user->user_id; ?> input-sm form-control hidden" 
                 value="<?php echo $data['password_confirm']; ?>">
               </div>
             </div>
@@ -102,7 +102,7 @@
               <div class="col-md-12">
                 <img src='<?php echo URLROOT . "/img/users/" . $user->user_image; ?>' class='img-thumb' style='width: 100px' alt="<?php echo $user->user_image; ?>">
                 <br><br>
-                <input class="edit-input input-<?php echo $user->user_id; ?> form-control hidden image-input" type="file" name="user_image">
+                <input class="edit-input input-<?php echo $user->user_id; ?> input-sm form-control hidden image-input" type="file" name="user_image">
                 <br>
               </div>
             </div>

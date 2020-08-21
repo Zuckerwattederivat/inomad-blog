@@ -411,3 +411,15 @@ ul.alert-dropdown {
   -webkit-box-shadow: 0 !important;
   background: rgba(0,0,0,0);
 }
+
+.edit-input {
+  width: 100% !important;
+}
+
+.image-input {
+  min-width: 150px !important;
+}
+
+.edit-label:last-of-type {
+  margin-top: 10px
+}

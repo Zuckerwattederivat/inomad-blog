@@ -35,11 +35,11 @@
 
     <!-- show includes file -->
     <?php switch ($data['action']) {
-      // show edit post
+      // show edit user
       case 'add':
         include_once APPROOT . "/views/includes/admin_add_user.php";
         break;
-      // show all posts
+      // show all users
       default:
         include_once APPROOT . "/views/includes/admin_show_users.php"; 
         break;
