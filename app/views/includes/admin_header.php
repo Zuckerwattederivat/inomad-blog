@@ -7,15 +7,23 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title><?php echo TITLEBACK; ?></title>
+  <!-- Google Font & Material Icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/css_cms/bootstrap.min.css">
+  <!-- Font Awesome CSS -->
   <link href="<?php echo URLROOT; ?>/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Datatables CSS -->
+  <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/DataTables/datatables.min.css"/>
+  <!-- Custom CSS -->
   <link href="<?php echo URLROOT; ?>/css_cms/sb-admin.css" rel="stylesheet">
   <!-- JQuery -->
   <script src="<?php echo URLROOT; ?>/js_cms/jquery.js"></script>
   <!-- Bootstrap Core Javascript -->
   <script src="<?php echo URLROOT; ?>/js_cms/bootstrap.js"></script>
+  <!-- Datatables -->
+  <script type="text/javascript" src="<?php echo URLROOT; ?>/DataTables/datatables.min.js"></script>
   <!-- AMcharts -->
   <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
   <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>

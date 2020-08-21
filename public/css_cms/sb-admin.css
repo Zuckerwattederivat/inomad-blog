@@ -381,60 +381,33 @@ ul.alert-dropdown {
 }
 
 /* =====================================================
-	Dashboard
+	Posts & Users
 ===================================================== */
 
+.pagination>.active>a, 
+.pagination>.active>a:focus, 
+.pagination>.active>a:hover, 
+.pagination>.active>span, 
+.pagination>.active>span:focus, 
+.pagination>.active>span:hover {
+  background: #ba3916;
+  border-color: #ba3916;
+}
 
+.pagination>li>a, 
+.pagination>li>span {
+  color: #ba3916;
+}
 
-/* =====================================================
-	Users
-===================================================== */
+.pagination>li>a:hover, 
+.pagination>li>span:hover {
+  color: #ba3916;
+}
 
-.custom-table {
-  width: 100%;
-  display: table;
-  border: 1px solid #d9d9d9;
-  border-collapse: separate;
-  border-spacing: 0px;
+.image-input {
+  border: 0;
   padding: 0;
+  box-shadow: inset 0 0 0 0 rgba(0,0,0,0) !important;
+  -webkit-box-shadow: 0 !important;
+  background: rgba(0,0,0,0);
 }
-
-.th-group {
-  display: table-header-group;
-}
-
-.th {
-  display: table-cell;
-  padding: 10px;
-  text-align: justify;
-  border-bottom: 1px solid #d9d9d9;
-  border-right: 1px solid #d9d9d9;
-}
-
-.th:nth-last-child(1) {
-  border-right: 0px;
-}
-
-.tr-group {
-  display: table-row-group;
-}
-
-.tr {
-  display: table-row;
-}
-
-.tr:hover {
-  background: #f4f4f4;
-}
-
-.td {
-  display: table-cell;
-  border-top: 1px solid #d9d9d9;
-  border-right: 1px solid #d9d9d9;
-  padding: 5px 5px 5px 5px;
-}
-
-.td:nth-last-child(1) {
-  border-right: 0px;
-}
-
