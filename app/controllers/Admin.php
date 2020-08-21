@@ -545,238 +545,230 @@
     }
 
     // edit user
-    public function edit_user($user_id=null) {
+    public function edit_user() {
 
       // get all users
       $users = $this->userModel->getUsers();
-      // get user
-      $user = $this->userModel->searchUser('user_id', $user_id);
 
-      if (!empty($user)) {
+      // if post method
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        // if post method
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // sanitize POST data
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-          // sanitize POST data
-          $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        // data array
+        $data = [
+          'h1' => 'Users',
+          'description' => 'Use this panel to edit and delete users.',
+          'posts' => $this->posts,
+          'posts_three_new' => $this->postsThreeNew,
+          'user' => $this->userModel->searchUser('user_id', $_POST['user_id']),
+          'users' => $users,
+          'action' => 'edit',
+          'user_role' => $_POST['user_role'],
+          'username' => trim($_POST['username']),
+          'name' => trim($_POST['name']),
+          'email' => trim($_POST['email']),
+          'password' => $_POST['password'],
+          'password_confirm' => $_POST['password_confirm'],
+          'user_bio' => trim($_POST['user_bio']),
+          'user_image' => $_FILES['user_image'],
+          'user_role_err' => '',
+          'name_err' => '',
+          'email_err' => '',
+          'password_err' => '',
+          'password_confirm_err' => '',
+          'user_image_err' => ''
+        ];
 
-          // data array
-          $data = [
-            'h1' => 'Users',
-            'description' => 'Use this panel to edit and delete users.',
-            'posts' => $this->posts,
-            'posts_three_new' => $this->postsThreeNew,
-            'user' => $user,
-            'users' => $users,
-            'action' => 'edit',
-            'user_role' => $_POST['user_role'],
-            'username' => trim($_POST['username']),
-            'name' => trim($_POST['name']),
-            'email' => trim($_POST['email']),
-            'password' => $_POST['password'],
-            'password_confirm' => $_POST['password_confirm'],
-            'user_bio' => trim($_POST['user_bio']),
-            'user_image' => $_FILES['user_image'],
-            'user_role_err' => '',
-            'name_err' => '',
-            'email_err' => '',
-            'password_err' => '',
-            'password_confirm_err' => '',
-            'user_image_err' => ''
-          ];
+        // user var
+        $user = $data['user'];
 
-          // validate name
-          if (empty($data['name'])) {
-            $data['name_err'] = 'Please enter name.';
-          } elseif (strlen($data['name']) > 60) {
-            $data['name_err'] = 'Your name can not be longer than 60 letters.';
+        // validate name
+        if (empty($data['name'])) {
+          $data['name_err'] = 'Please enter name.';
+        } elseif (strlen($data['name']) > 60) {
+          $data['name_err'] = 'Your name can not be longer than 60 letters.';
+        }
+
+        // validate username
+        if (empty($data['username'])) {
+          $data['username_err'] = 'Please enter username.';
+        } elseif (strlen($data['username']) > 60) {
+          $data['username_err'] = 'Your username can not be longer than 60 letters.';
+        } elseif ($this->userModel->searchUser('user_alias', $data['username'], true) && $data['username'] !== $user->user_alias) {
+          $data['username_err'] = 'Username is already taken.';
+        }
+
+        // validate email
+        if (empty($data['email'])) {
+          $data['email_err'] = 'Please enter an email adress.';
+        } elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+          $data['email_err'] = 'Please enter valid email.';
+        } elseif ($this->userModel->searchUser('user_email', $data['email'], true) && $data['email'] !== $user->user_email) {
+          $data['email_err'] = 'Email is already taken.';
+        }
+
+        // validate password
+        if (!empty($data['password']) &&  strlen($data['password']) < 6) {
+          $data['password_err'] = 'Password must be at least 6 characters.';
+        } elseif (strlen($data['password']) > 30) {
+          $data['password_err'] = 'Your password can not be longer than 30 letters.';
+        }
+
+        // validate password confirmation
+        if (!empty($data['password']) && empty($data['password_confirm'])) {
+          $data['password_confirm_err'] = 'Please confirm password.';
+        } elseif ($data['password'] !== $data['password_confirm']) {
+          $data['password_confirm_err'] = 'Passwords are not matching.';
+        }
+
+        // if user image was uploaded
+        if (!empty($data['user_image']['name']) && empty($data['name_err']) && empty($data['username_err']) && empty($data['email_err']) &&  empty($data['password_err']) && empty($data['password_confirm_err'])) {
+          
+          // change image name
+          $data['user_image']['name'] = "profile_pic_user_" . $user->user_id . ".jpg";
+          // invoke img validator return path or error
+          $image = validateImageUpload($data['user_image'], false, 8, 'img/users/');
+
+          // image validation and convertion
+          if (strpos($image, '/') === false) {
+            $data['user_image_err'] = $image;
+          } elseif (!empty($data['user_image']['name']) && strpos($image, '/') !== false) {
+            // convert image to thumb
+            $imaging = new Imaging();
+            $imaging->set_img($image);
+            $imaging->set_quality(80);
+            $imaging->set_size(500);
+            $imaging->save_img("img/users/" . $data['user_image']['name']);
+            $imaging->clear_cache();
+          }
+        }
+
+        // update db and image
+        if (empty($data['user_image_err']) && empty($data['name_err']) && empty($data['username_err']) && empty($data['email_err']) &&  empty($data['password_err']) && empty($data['password_confirm_err'])) {
+
+          // hash new password
+          if (!empty($data['password'])) {
+            $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
           }
 
-          // validate username
-          if (empty($data['username'])) {
-            $data['username_err'] = 'Please enter username.';
-          } elseif (strlen($data['username']) > 60) {
-            $data['username_err'] = 'Your username can not be longer than 60 letters.';
-          } elseif ($this->userModel->searchUser('user_alias', $data['username'], true) && $data['username'] !== $user->user_alias) {
-            $data['username_err'] = 'Username is already taken.';
-          }
-
-          // validate email
-          if (empty($data['email'])) {
-            $data['email_err'] = 'Please enter an email adress.';
-          } elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-            $data['email_err'] = 'Please enter valid email.';
-          } elseif ($this->userModel->searchUser('user_email', $data['email'], true) && $data['email'] !== $user->user_email) {
-            $data['email_err'] = 'Email is already taken.';
-          }
-
-          // validate password
-          if (!empty($data['password']) &&  strlen($data['password']) < 6) {
-            $data['password_err'] = 'Password must be at least 6 characters.';
-          } elseif (strlen($data['password']) > 30) {
-            $data['password_err'] = 'Your password can not be longer than 30 letters.';
-          }
-
-          // validate password confirmation
-          if (!empty($data['password']) && empty($data['password_confirm'])) {
-            $data['password_confirm_err'] = 'Please confirm password.';
-          } elseif ($data['password'] !== $data['password_confirm']) {
-            $data['password_confirm_err'] = 'Passwords are not matching.';
-          }
-
-          // if user image was uploaded
-          if (!empty($data['user_image']['name']) && empty($data['name_err']) && empty($data['username_err']) && empty($data['email_err']) &&  empty($data['password_err']) && empty($data['password_confirm_err'])) {
-            
-            // change image name
-            $data['user_image']['name'] = "profile_pic_user_" . $user->user_id . ".jpg";
-            // invoke img validator return path or error
-            $image = validateImageUpload($data['user_image'], false, 8, 'img/users/');
-
-            // image validation and convertion
-            if (strpos($image, '/') === false) {
-              $data['user_image_err'] = $image;
-            } elseif (!empty($data['user_image']['name']) && strpos($image, '/') !== false) {
-              // convert image to thumb
-              $imaging = new Imaging();
-              $imaging->set_img($image);
-              $imaging->set_quality(80);
-              $imaging->set_size(500);
-              $imaging->save_img("img/users/" . $data['user_image']['name']);
-              $imaging->clear_cache();
-            }
-          }
-
-          // update db and image
-          if (empty($data['user_image_err']) && empty($data['name_err']) && empty($data['username_err']) && empty($data['email_err']) &&  empty($data['password_err']) && empty($data['password_confirm_err'])) {
-
-            // hash new password
-            if (!empty($data['password'])) {
-              $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-            }
-
-            // update rights
-            if (!$this->userModel->updateRights($data['user']->user_id, $data['user_role'])) {
-              // invoke session helper flash function
-              flash('admin_alert', 'Something went wrong. Please try again.', 'alert alert-danger');
-              // if successfull redirect
-              header("Location: " . URLROOT . "/admin/users");
-            }
-
-            // if password and image wasnt updated
-            if (empty($data['password']) && empty($data['user_image']['name']) && $this->userModel->updateUserInfo($data)) {
-
-              // if user edits himself create new session
-              if ($data['user']->user_id === $_SESSION['user_id']) {
-                // get new user info
-                $user = $this->userModel->searchUser('user_id', $user_id);
-                $this->createUserSession($user, false);
-              }
-
-              // invoke session helper flash function
-              flash('admin_alert', 'The user information has been updated successfully.');
-              // if successfull redirect
-              header("Location: " . URLROOT . "/admin/users");
-              
-              // if image was updated
-            } elseif (empty($data['password']) && $this->userModel->updateUserInfo($data, false, true)) {
-              
-              // if user edits himself create new session
-              if ($data['user']->user_id === $_SESSION['user_id']) {
-                // get new user info
-                $user = $this->userModel->searchUser('user_id', $user_id);
-                $this->createUserSession($user, false);
-              }
-
-              // invoke session helper flash function
-              flash('admin_alert', 'The user information has been updated successfully.');
-              // if successfull redirect
-              header("Location: " . URLROOT . "/admin/users");
-
-              // if password was updated
-            } elseif (empty($data['user_image']['name']) && $this->userModel->updateUserInfo($data, true, false)) {
-
-              // if user edits himself create new session
-              if ($data['user']->user_id === $_SESSION['user_id']) {
-                // get new user info
-                $user = $this->userModel->searchUser('user_id', $user_id);
-                $this->createUserSession($user, false);
-              }
-
-              // invoke session helper flash function
-              flash('admin_alert', 'The user information has been updated successfully.');
-              // if successfull redirect
-              header("Location: " . URLROOT . "/admin/users");
-
-              // if image and password were updated
-            } elseif ($this->userModel->updateUserInfo($data, true, true)) {
-              
-              // if user edits himself create new session
-              if ($data['user']->user_id === $_SESSION['user_id']) {
-                // get new user info
-                $user = $this->userModel->searchUser('user_id', $user_id);
-                $this->createUserSession($user, false);
-              }
-
-              // invoke session helper flash function
-              flash('admin_alert', 'The user information has been updated successfully.');
-              // if successfull redirect
-              header("Location: " . URLROOT . "/admin/users");
-            }
-
-            // redirect
-          } else {
-
-            // create errors array
-            $errors = array($data['user_image_err'], $data['name_err'], $data['username_err'], $data['email_err'], $data['password_err'], $data['password_confirm_err']);
-
-            // create error message
-            foreach ($errors as $error) {
-              if (!empty($error)) {
-                flash('admin_alert', $error, 'alert alert-danger');
-              }
-            }
-
-            // redirect
+          // update rights
+          if (!$this->userModel->updateRights($data['user']->user_id, $data['user_role'])) {
+            // invoke session helper flash function
+            flash('admin_alert', 'Something went wrong. Please try again.', 'alert alert-danger');
+            // if successfull redirect
             header("Location: " . URLROOT . "/admin/users");
           }
 
-          // init
+          // if password and image wasnt updated
+          if (empty($data['password']) && empty($data['user_image']['name']) && $this->userModel->updateUserInfo($data)) {
+
+            // if user edits himself create new session
+            if ($data['user']->user_id === $_SESSION['user_id']) {
+              // get new user info
+              $user = $this->userModel->searchUser('user_id', $user_id);
+              $this->createUserSession($user, false);
+            }
+
+            // invoke session helper flash function
+            flash('admin_alert', 'The user information has been updated successfully.');
+            // if successfull redirect
+            header("Location: " . URLROOT . "/admin/users");
+            
+            // if image was updated
+          } elseif (empty($data['password']) && $this->userModel->updateUserInfo($data, false, true)) {
+            
+            // if user edits himself create new session
+            if ($data['user']->user_id === $_SESSION['user_id']) {
+              // get new user info
+              $user = $this->userModel->searchUser('user_id', $user_id);
+              $this->createUserSession($user, false);
+            }
+
+            // invoke session helper flash function
+            flash('admin_alert', 'The user information has been updated successfully.');
+            // if successfull redirect
+            header("Location: " . URLROOT . "/admin/users");
+
+            // if password was updated
+          } elseif (empty($data['user_image']['name']) && $this->userModel->updateUserInfo($data, true, false)) {
+
+            // if user edits himself create new session
+            if ($data['user']->user_id === $_SESSION['user_id']) {
+              // get new user info
+              $user = $this->userModel->searchUser('user_id', $user_id);
+              $this->createUserSession($user, false);
+            }
+
+            // invoke session helper flash function
+            flash('admin_alert', 'The user information has been updated successfully.');
+            // if successfull redirect
+            header("Location: " . URLROOT . "/admin/users");
+
+            // if image and password were updated
+          } elseif ($this->userModel->updateUserInfo($data, true, true)) {
+            
+            // if user edits himself create new session
+            if ($data['user']->user_id === $_SESSION['user_id']) {
+              // get new user info
+              $user = $this->userModel->searchUser('user_id', $user_id);
+              $this->createUserSession($user, false);
+            }
+
+            // invoke session helper flash function
+            flash('admin_alert', 'The user information has been updated successfully.');
+            // if successfull redirect
+            header("Location: " . URLROOT . "/admin/users");
+          }
+
+          // redirect
         } else {
 
-          // data array
-          $data = [
-            'h1' => 'Users',
-            'description' => 'Use this panel to edit and delete users.',
-            'posts' => $this->posts,
-            'posts_three_new' => $this->postsThreeNew,
-            'user' => $user,
-            'users' => $users,
-            'action' => 'edit',
-            'user_role' => '',
-            'username' => '',
-            'name' => '',
-            'email' => '',
-            'password' => '',
-            'password_confirm' => '',
-            'user_bio' => '',
-            'user_image' => '',
-            'username_err' => '',
-            'name_err' => '',
-            'email_err' => '',
-            'password_err' => '',
-            'password_confirm_err' => '',
-            'user_image_err' => ''
-          ];
+          // create errors array
+          $errors = array($data['user_image_err'], $data['name_err'], $data['username_err'], $data['email_err'], $data['password_err'], $data['password_confirm_err']);
 
-          // load view
-          $this->view('admin/users', $data);
+          // create error message
+          foreach ($errors as $error) {
+            if (!empty($error)) {
+              flash('admin_alert', $error, 'alert alert-danger');
+            }
+          }
+
+          // redirect
+          header("Location: " . URLROOT . "/admin/users");
         }
 
-        // else redirect
+        // init
       } else {
-        // invoke session helper flash function
-        flash('admin_alert', 'User not found. Please try again.', 'alert alert-danger');
-        header("Location: " . URLROOT . "/admin/users");
+
+        // data array
+        $data = [
+          'h1' => 'Users',
+          'description' => 'Use this panel to edit and delete users.',
+          'posts' => $this->posts,
+          'posts_three_new' => $this->postsThreeNew,
+          'user' => '',
+          'users' => $users,
+          'action' => 'edit',
+          'user_role' => '',
+          'username' => '',
+          'name' => '',
+          'email' => '',
+          'password' => '',
+          'password_confirm' => '',
+          'user_bio' => '',
+          'user_image' => '',
+          'username_err' => '',
+          'name_err' => '',
+          'email_err' => '',
+          'password_err' => '',
+          'password_confirm_err' => '',
+          'user_image_err' => ''
+        ];
+
+        // load view
+        $this->view('admin/users', $data);
       }
 
     }

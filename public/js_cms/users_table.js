@@ -10,6 +10,7 @@
   toggleEditFields(editButtons);
   // fetch close buttons
   let closeButtons = document.querySelectorAll('.btn-close-edit');
+  toggleEditFields(closeButtons);
   // fetch submit buttons
   let submitButtons = document.querySelectorAll('.btn-submit-edit');
   // fetch all inputs
@@ -50,11 +51,11 @@
           allInputs.forEach(element => {
             element.setAttribute('name', '');
             element.classList.add('hidden');
-          })
+          });
           // add hidden class to labels
           allLabels.forEach(element => {
             element.classList.add('hidden');
-          })
+          });
           // remove hidden from content
           allContentDivs.forEach(element => {
             element.classList.remove('hidden');
@@ -67,12 +68,12 @@
           submitButtons.forEach(element => {
             element.classList.add('hidden');
           });
-
-          // -- activate new edit row -- //
           // remove hidden from edit buttons
           editButtons.forEach(element => {
             element.classList.remove('hidden');
           });
+
+          // -- activate new edit row -- //
           // hide edit button
           element.classList.add('hidden');
           // show submit, close buttons
@@ -100,6 +101,27 @@
           inputFields[6].setAttribute('name', 'password_confirm');
           inputFields[7].setAttribute('name', 'user_bio');
           inputFields[8].setAttribute('name', 'user_image');
+
+          // if element is close button
+        } else {
+
+          // remove close button
+          element.classList.add('hidden');
+          // remove submit 
+          submitButton.classList.add('hidden');
+          // show input fields, labels
+          inputFieldsNew.forEach(element => {
+            element.classList.add('hidden');
+          });
+          labels.forEach(element => {
+            element.classList.add('hidden');
+          });
+          // show edit button
+          editButton.classList.remove('hidden');
+          // hide content
+          contentFields.forEach(element => {
+            element.classList.remove('hidden');
+          });
         }
       });
     });

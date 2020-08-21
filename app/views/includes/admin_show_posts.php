@@ -36,15 +36,4 @@
 <!-- /. posts table -->
 
 <!-- Posts Table Script -->
-<script type="text/javascript">
-
-  // render table with datatables plugin
-  (function() {
-
-    $(document).ready(function() {
-      $('#posts-table').DataTable();
-    })
-
-  })();
-
-</script>
+<script type="text/javascript" src="<?php echo URLROOT; ?>/js_cms/posts_table.js"></script>
