@@ -8,10 +8,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tab Icon -->
+  <link rel="shortcut icon" type="image/png" href="<?php echo URLROOT; ?>/img/site/favicon_logo.png">
+  <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
+  <!-- Material Icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/bootstrap.min.css">
+  <!-- Font Awesome CSS  -->
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/font-awesome/css/font-awesome.min.css">
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/custom.css">
   <!-- JQuery -->
   <script src="<?php echo URLROOT; ?>/js/jquery.min.js"></script>

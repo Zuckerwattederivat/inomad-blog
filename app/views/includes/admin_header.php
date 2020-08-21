@@ -7,6 +7,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title><?php echo TITLEBACK; ?></title>
+  <!-- Tab Icon -->
+  <link rel="shortcut icon" type="image/png" href="<?php echo URLROOT; ?>/img/site/favicon_logo.png">
   <!-- Google Font & Material Icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
