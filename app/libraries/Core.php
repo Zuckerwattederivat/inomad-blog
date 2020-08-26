@@ -22,6 +22,10 @@
         $this->currentController = ucwords($url[0]);
         // Unset 0 Index
         unset($url[0]);
+
+        // set Error Controller if controller doesn't exist
+      } elseif ($url !== null && !file_exists('../app/controllers/' . ucwords($url[0]) . '.php')) {
+        $this->currentController = 'Errors';
       }
 
       // Require the controller

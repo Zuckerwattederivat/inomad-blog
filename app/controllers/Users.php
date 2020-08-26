@@ -17,7 +17,8 @@
 
     // index
     public function index() {
-      header('Location: ' . URLROOT);
+      //load 404 page
+      header("Location: " . URLROOT . "/errors/page_not_found");
     }
 
     // register method
@@ -471,7 +472,7 @@
       // if id is empty redirect
       if (empty($id)) {
 
-        header("Location: " . URLROOT);
+        header("Location: " . URLROOT . "/errors/page_not_found");
         
         // if id isn't empty load
       } else {
@@ -485,7 +486,7 @@
 
         // if user doesn't exist redirect
         if (empty($user)) {
-          header("Location: " . URLROOT);
+          header("Location: " . URLROOT . "/errors/page_not_found");
         }
 
         // data array

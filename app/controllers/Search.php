@@ -15,7 +15,8 @@
 
     // index
     public function index() {
-      header('Location: ' . URLROOT);
+      // load 404 page
+      header("Location: " . URLROOT . "/errors/page_not_found");
     }
 
     // search by category
@@ -33,9 +34,9 @@
         // get posts based on cat_id
         $posts = $this->postModel->searchPosts('post_category_id', $_GET['id']);
         
-        // if categories not found load homepage
+        // if categories not found load 404 page
         if (empty($catFromGet)) {
-          header("Location: " . URLROOT);
+          header("Location: " . URLROOT . "/errors/page_not_found");
         }
 
         // data array
@@ -58,8 +59,8 @@
         // if cat id is not set
       } else {
 
-        // go back to homepage
-        header("Location: " . URLROOT);
+        // go to 404 page
+        header("Location: " . URLROOT . "/errors/page_not_found");
       }
     }
 

@@ -18,7 +18,7 @@
 
     // index
     public function index() {
-      header('Location: ' . URLROOT);
+      header("Location: " . URLROOT . "/errors/page_not_found");
     }
 
     // search by category
@@ -32,9 +32,9 @@
 
         // get category from GET Value
         $catFromGet = $this->catModel->searchCats('cat_id', $id);
-        // if categories not found load homepage
+        // if categories not found load 404 page
         if (empty($catFromGet)) {
-          header("Location: " . URLROOT);
+          header("Location: " . URLROOT . "/errors/page_not_found");
         }
         // get posts based on cat_id
         $posts = $this->postModel->searchPostsByCat($catFromGet->cat_id, $catFromGet->cat_title);
@@ -67,9 +67,8 @@
 
         // if cat id is not set
       } else {
-
-        // go back to homepage
-        header("Location: " . URLROOT);
+        // load 404 page
+        header("Location: " . URLROOT . "/errors/page_not_found");
       }
     }
 
@@ -85,9 +84,9 @@
         // get category from GET Value
         $catFromGet = $this->catModel->searchCats('cat_id', $id);
 
-        // if categories not found load homepage
+        // if categories not found load 404 page
         if (empty($catFromGet)) {
-          header("Location: " . URLROOT);
+          header("Location: " . URLROOT . "/errors/page_not_found");
         }
 
         // get posts based on cat_id
@@ -121,9 +120,8 @@
 
         // if cat id is not set
       } else {
-
-        // go back to homepage
-        header("Location: " . URLROOT);
+        // load 404 page
+        header("Location: " . URLROOT . "/errors/page_not_found");
       }
     }
 
@@ -203,7 +201,7 @@
         
         // if post not found load homepage
         if (empty($post)) {
-          header("Location: " . URLROOT);
+          header("Location: " . URLROOT . "/errors/page_not_found");
         }
 
         // save post paragraphs to array
@@ -221,7 +219,7 @@
         $this->view('posts/show', $data);
 
       } else {
-        header("Location: " . URLROOT);
+        header("Location: " . URLROOT . "/errors/page_not_found");
       }
     }
 
@@ -368,16 +366,16 @@
     
     }
 
-    public function edit($post_edit_id) {
+    public function edit($post_edit_id=null) {
 
       // if user is not logged redirect to login and display alert
       if (!isLoggedIn()) {
         flash('login_alert', 'Please login to edit your posts.', 'alert alert-danger');
         Header('Location: ' . URLROOT . '/users/login');
 
-        // if post id is null redirect
+        // if post id is null redirect to 404
       } elseif ($post_edit_id === null) {
-        Header('Location: ' . URLROOT);
+        header("Location: " . URLROOT . "/errors/page_not_found");
       }
 
       // get post
@@ -533,7 +531,7 @@
 
         // redirect to home
       } else {
-        Header('Location: ' . URLROOT);
+        header("Location: " . URLROOT . "/errors/page_not_found");
       }
     
     }
