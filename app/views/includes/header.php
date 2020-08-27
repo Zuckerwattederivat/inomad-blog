@@ -12,6 +12,7 @@
   <link rel="shortcut icon" type="image/png" href="<?php echo URLROOT; ?>/img/site/favicon_logo.png">
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
   <!-- Material Icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <!-- Bootstrap CSS -->

@@ -8,7 +8,12 @@
     public function __construct() {
       $this->catModel = $this->model('Category');
     }
-    
+
+    // index loads 404 method
+    public function index() {
+      header('Location: ' . URLROOT . '/errors/page_not_found');
+    }
+
     // 404 method
     public function page_not_found() {
 
