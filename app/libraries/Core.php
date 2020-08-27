@@ -26,6 +26,7 @@
         // set Error Controller if controller doesn't exist
       } elseif ($url !== null && !file_exists('../app/controllers/' . ucwords($url[0]) . '.php')) {
         $this->currentController = 'Errors';
+        $this->currentMethod = "page_not_found";
       }
 
       // Require the controller

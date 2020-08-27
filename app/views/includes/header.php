@@ -20,6 +20,10 @@
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/font-awesome/css/font-awesome.min.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/custom.css">
+  <?php if (isset($data['type']) && $data['type'] === '404') : ?>
+    <!-- 404 Page CSS -->
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/404_page.css">
+  <?php endif; ?>
   <!-- JQuery -->
   <script src="<?php echo URLROOT; ?>/js/jquery.min.js"></script>
   <!-- PopperJs -->

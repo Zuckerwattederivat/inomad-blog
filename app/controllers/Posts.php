@@ -78,8 +78,8 @@
       // get all categories
       $categories = $this->catModel->getCats();
 
-      // check if category id isset
-      if ($id && $page) {
+      // check if category id and page isset
+      if ($id && is_numeric($page) && $page > 0) {
 
         // get category from GET Value
         $catFromGet = $this->catModel->searchCats('cat_id', $id);
