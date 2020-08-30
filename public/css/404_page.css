@@ -73,8 +73,8 @@ body {
 
 .not-found .wave-lost {
   position: absolute;
-  top: 20%;
-  left: 50%;
+  top: 15%;
+  left: 30%;
   color: #fff;
   font-size: 20rem;
   -webkit-animation: surf 2s;
@@ -293,6 +293,11 @@ body {
     background-size: cover;
     background-position: right;
   }
+  .not-found .wave-lost {
+    top: 26%;
+    left: 40%;
+    font-size: 9rem;
+  }
 }
 
 @media(max-width: 1000px) {
@@ -316,5 +321,46 @@ body {
   }
   .not-found div.wave-7 {
     background-size: cover;
+  }
+}
+
+@media(min-height: 1000px) {
+  .not-found div.wave-1 {
+    top: 50%;
+    background-size: cover;
+  }
+  .not-found div.wave-2 {
+    top: 50%;
+    background-size: cover;
+  }
+  .not-found div.wave-3 {
+    top: 50%;
+    background-size: cover;
+  }
+  .not-found div.wave-4 {
+    top: 50%;
+    background-size: cover;
+  }
+  .not-found div.wave-5 {
+    top: 50%;
+    background-size: cover;
+  }
+  .not-found div.wave-6 {
+    top: 50%;
+    background-size: cover;
+  }
+  .not-found div.wave-7 {
+    top: 50%;
+    background-size: cover;
+  }
+  .not-found .wave-boat {
+    top: 50%
+  }
+  .not-found .wave-lost {
+    top: 32%;
+    left: 50%;
+  }
+  .not-found .wave-island {
+    top: 45%;
   }
 }

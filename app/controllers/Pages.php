@@ -60,12 +60,9 @@
     }
 
     // Load index
-    public function page($page=1) {
+    public function page($page=null) {
 
       if (is_numeric($page) && $page > 0) {
-
-        $page = 1;
-
         // get all posts
         $posts = $this->postModel->getPosts();
         // get 3 random posts
