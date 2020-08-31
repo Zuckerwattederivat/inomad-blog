@@ -84,11 +84,11 @@
                 <?php foreach ($data['posts_newest'] as $post) : ?>
                   <li class="message-preview">
                   <a href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->post_id; ?>" class="text-dark">
-                    <div class="media overflow-hidden">
-                      <span class="pull-left mr-3">
+                    <div class="media post-card-side">
+                      <span class="pull-left mr-3 post-card-side-img">
                         <img class="media-object" style="max-width: 80px" src="<?php echo URLROOT . "/img/posts/thumb_" .  $post->post_image; ?>" alt="<?php echo $post->post_image; ?>">
                       </span>
-                      <div class="media-body">
+                      <div class="media-body post-card-side-body">
                         <h5 class="media-heading">
                           <strong><?php echo $post->post_title; ?></strong>
                         </h5>

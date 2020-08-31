@@ -77,11 +77,11 @@
                 <?php foreach ($data['related_posts'] as $relatedPost) :  ?>
                   <li class="message-preview">
                   <a href="<?php echo URLROOT; ?>/posts/show/<?php echo $relatedPost->post_id; ?>" class="text-dark">
-                    <div class="media">
-                      <span class="pull-left mr-3">
+                    <div class="media post-card-side">
+                      <span class="pull-left mr-3 post-card-side-img">
                         <img class="media-object" style="max-width: 80px" src="<?php echo URLROOT . "/img/posts/thumb_" .  $relatedPost->post_image; ?>" alt="<?php echo $post->post_image; ?>">
                       </span>
-                      <div class="media-body overflow-hidden">
+                      <div class="media-body post-card-side-body">
                         <h5 class="media-heading">
                           <strong><?php echo $relatedPost->post_title; ?></strong>
                         </h5>

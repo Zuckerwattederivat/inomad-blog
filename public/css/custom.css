@@ -68,6 +68,19 @@ body {
 	max-width: 80%;
 }
 
+/* post cards sidebar */
+@media (max-width: 991px) and (min-width: 778px) {
+	.post-card-side {
+		flex-direction: column !important;
+	}
+	.post-card-side-img {
+		margin-bottom: 10px;
+	}
+	.post-card-side-body {
+		margin-bottom: 10px;
+	}
+}
+
 /* =====================================================
 	Navigation 
 ===================================================== */
