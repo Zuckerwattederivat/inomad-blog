@@ -197,7 +197,7 @@
         // get category from GET Value
         $catFromGet = $this->catModel->searchCats('cat_id', $post->post_category_id);
         // get related posts
-        $related_posts = $this->postModel->searchPostsByCatLimit($catFromGet->cat_id, $catFromGet->cat_title, 1, 4);
+        $related_posts = $this->postModel->searchPostsByCatLimit($catFromGet->cat_id, $catFromGet->cat_title, 1, 5);
         
         // if post not found load homepage
         if (empty($post)) {
