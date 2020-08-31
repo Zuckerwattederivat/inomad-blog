@@ -1,7 +1,7 @@
 # inomad-blog
 A blog for travel enthusiasts to tell their stories and to let users read about the adventures of other people to get inspiration.
 It comes with a basic cms for admins to manage the blog and delete users or posts if needed. 
-The site relies on Bootstrap, Jquery, popper.js, amcharts as well as PHP and MySQL.
+The site relies on Bootstrap, Jquery, popper.js, amcharts as well as Vanilla Javascript, PHP and MySQL.
 
 # Set Up
 1. Import SQL database found in the application's root directory under "app/backup/database.sql" to your MySQL server.
