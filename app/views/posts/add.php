@@ -56,8 +56,7 @@
             </div>
             <div class="form-group">
               <label for="post_content">Post Content</label>
-              <textarea rows="11" name="post_content" class="col-md-12 block<?php echo (!empty($data['post_content_err'])) ? 'is-invalid' : ''; ?>" ><?php echo $data['post_content']; ?></textarea>
-              <br>
+              <textarea rows="11" name="post_content" class="col-md-12 block form-control <?php echo (!empty($data['post_content_err'])) ? 'is-invalid' : ''; ?>" ><?php echo $data['post_content']; ?></textarea>
               <span class="text-danger small pt-2"><?php echo $data['post_content_err']; ?></span>
             </div>
             <div class="row">

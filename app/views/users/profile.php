@@ -50,9 +50,6 @@
               <ul class="list-group">
                 <li class="list-group-item text-muted"><i class="fa fa-dashboard fa-1x"></i> Activity </li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> <?php echo $data['post_count']; ?></li>
-                <!-- <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li> -->
               </ul> 
             </div>
           </div>
