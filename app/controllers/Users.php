@@ -540,7 +540,7 @@
           $this->view('users/posts', $data);
         }
       }
-
     }
+    
   }
 ?>
