@@ -227,7 +227,7 @@
 
       // if user is not logged redirect to login and display alert
       if (!isLoggedIn()) {
-        flash('login_alert', 'Please login to edit your posts.', 'alert alert-danger');
+        flash('login_alert', 'Please login to add your post.', 'alert alert-danger');
         Header('Location: ' . URLROOT . '/users/login');
       }
 
