@@ -37,9 +37,9 @@
                 <a href="<?php echo URLROOT; ?>/users/register" class="btn btn-block text-white btn-orange">Register</a>
               </div>
             </div>
-            <div class="container mt-3">
+            <!-- <div class="container mt-3">
             <a href="<?php echo URLROOT; ?>/users/password_reset" class="btn btn-block text-white btn-block">Forgot your Password?</a>
-            </div>
+            </div> -->
           </form>
           
         </div>
