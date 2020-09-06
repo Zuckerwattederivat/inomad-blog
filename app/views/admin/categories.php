@@ -88,8 +88,8 @@
               <tr>
                 <td><?php echo $category->cat_id; ?></td>
                 <td><?php echo $category->cat_title; ?></td>
-                <td><a class=" btn btn-info btn-block" href="<?php echo URLROOT . "/admin/categories/edit/".$category->cat_id; ?>"><i class="fa fa-edit"></i></a></td>
-                <td><a href="#confirm-delete" class="btn btn-danger btn-block" data-toggle="modal" data-backdrop="static" data-keyboard="false" onclick="window.history.pushState({}, null, '<?php echo URLROOT.'/admin/delete_category/'.$category->cat_id; ?>');"><i class="fa fa-trash"></i></a></td>
+                <td class="text-center"><a class=" btn btn-info" href="<?php echo URLROOT . "/admin/categories/edit/".$category->cat_id; ?>"><i class="fa fa-edit"></i></a></td>
+                <td class="text-center"><a href="#confirm-delete" class="btn btn-danger" data-toggle="modal" data-backdrop="static" data-keyboard="false" onclick="window.history.pushState({}, null, '<?php echo URLROOT.'/admin/delete_category/'.$category->cat_id; ?>');"><i class="fa fa-trash"></i></a></td>
               </tr>
             <?php endforeach; ?>
           </tbody>
