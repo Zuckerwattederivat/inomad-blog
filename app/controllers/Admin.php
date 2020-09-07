@@ -667,7 +667,8 @@
             // if user edits himself create new session
             if ($data['user']->user_id === $_SESSION['user_id']) {
               // get new user info
-              $user = $this->userModel->searchUser('user_id', $user_id);
+              $user = $this->userModel->searchUser('user_id', $data['user']->user_id);
+              // create new session
               $this->createUserSession($user, false);
             }
 
@@ -682,7 +683,8 @@
             // if user edits himself create new session
             if ($data['user']->user_id === $_SESSION['user_id']) {
               // get new user info
-              $user = $this->userModel->searchUser('user_id', $user_id);
+              $user = $this->userModel->searchUser('user_id', $data['user']->user_id);
+              // create new session
               $this->createUserSession($user, false);
             }
 
@@ -697,7 +699,8 @@
             // if user edits himself create new session
             if ($data['user']->user_id === $_SESSION['user_id']) {
               // get new user info
-              $user = $this->userModel->searchUser('user_id', $user_id);
+              $user = $this->userModel->searchUser('user_id', $data['user']->user_id);
+              // create new session
               $this->createUserSession($user, false);
             }
 
@@ -712,7 +715,8 @@
             // if user edits himself create new session
             if ($data['user']->user_id === $_SESSION['user_id']) {
               // get new user info
-              $user = $this->userModel->searchUser('user_id', $user_id);
+              $user = $this->userModel->searchUser('user_id', $data['user']->user_id);
+              // create new session
               $this->createUserSession($user, false);
             }
 
