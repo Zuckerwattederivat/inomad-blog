@@ -138,10 +138,6 @@
   <!-- /.container-fluid -->
 </div>
 
-<script>
-  
-</script>
-
 <!-- Dashboard JS -->
 <?php include APPROOT . "/views/includes/admin_dashboard_script.php"?>
 
