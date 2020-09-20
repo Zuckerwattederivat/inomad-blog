@@ -52,10 +52,19 @@
     <div id="no-posts-cont" class="container-fluid d-flex flex-column justify-content-center">
       <div class="row">
         <div class="col-md-12 d-flex justify-content-center">
-          <img width="300px" src="<?php echo URLROOT.'/img/site/no_posts.jpg'; ?>" alt="No posts">
+          <a href='https://www.freepik.com/vectors/data'>
+            <div class="row">
+              <div class="col-md-12 d-flex justify-content-center">
+                <img width="300px" src="<?php echo URLROOT.'/img/site/no_posts.jpg'; ?>" alt="No posts">
+              </div>
+              <div class="col-md-12 d-flex justify-content-center">
+                Data vector created by stories - www.freepik.com
+              </div>
+            </div>
+          </a>
         </div>
       </div>
-      <div class="row">
+      <div class="row mt-3">
         <div class="col-md-12 d-flex justify-content-center">
         <h4><?php echo $data['h4_1']; ?></h4>
         </div>
